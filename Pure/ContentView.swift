@@ -1,21 +1,23 @@
-//
-//  ContentView.swift
-//  Pure
-//
-//  Created by kk on 5/19/25.
-//
-
 import SwiftUI
+import WebKit
+
+struct WebView: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        uiView.load(request)
+    }
+}
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
