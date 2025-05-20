@@ -6,17 +6,16 @@
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
-    <key>CFBundleIconFile</key>
-    <string>AppIcon</string>
-    <key>CFBundleIconName</key>
-    <string>AppIcon</string>
     <key>CFBundleIconFiles</key>
     <array>
-        <string>Icon-120</string>
-        <string>Icon-152</string>
-        <string>Icon-60@2x</string>
-        <string>Icon-76@2x</string>
+        <string>Icon.png</string>
+        <string>Icon-60@2x.png</string>
+        <string>Icon-76@2x.png</string>
+        <string>AppIcon120x120.png</string>
+        <string>AppIcon152x152.png</string>
     </array>
+    <key>CFBundleIconName</key>
+    <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleInfoDictionaryVersion</key>
@@ -24,7 +23,7 @@
     <key>CFBundleName</key>
     <string>$(PRODUCT_NAME)</string>
     <key>CFBundlePackageType</key>
-    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <string>APPL</string>
     <key>CFBundleShortVersionString</key>
     <string>$(MARKETING_VERSION)</string>
     <key>CFBundleVersion</key>
@@ -37,8 +36,9 @@
         <dict>
             <key>CFBundleIconFiles</key>
             <array>
-                <string>Icon-120</string>
-                <string>Icon-60@2x</string>
+                <string>Icon.png</string>
+                <string>Icon-60@2x.png</string>
+                <string>AppIcon120x120.png</string>
             </array>
             <key>UIPrerenderedIcon</key>
             <false/>
@@ -50,13 +50,15 @@
         <dict>
             <key>CFBundleIconFiles</key>
             <array>
-                <string>Icon-152</string>
-                <string>Icon-76@2x</string>
+                <string>Icon-76@2x.png</string>
+                <string>AppIcon152x152.png</string>
             </array>
             <key>UIPrerenderedIcon</key>
             <false/>
         </dict>
     </dict>
+    <key>UIPrerenderedIcon</key>
+    <false/>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
