@@ -51,12 +51,12 @@ struct ContentView: View {
             }
         } else {
             // Show actual WebView in simulator and on device
-            WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
+            WebView(url: URL(string: "https://simple-skeletal-app-frame.lovable.app")!)
                 .edgesIgnoringSafeArea(.all)
         }
         #else
         // Always show WebView in Release builds
-        WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
+        WebView(url: URL(string: "https://simple-skeletal-app-frame.lovable.app")!)
             .edgesIgnoringSafeArea(.all)
         #endif
     }
