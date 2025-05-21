@@ -34,10 +34,8 @@ struct WebView: NSViewRepresentable {
 #endif
 
 struct ContentView: View {
-    @Environment(\.previewDevice) private var previewDevice
-    
     var body: some View {
-        // Check if we're in preview mode to avoid network requests during preview
+        #if DEBUG
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
             // Placeholder content for preview
             VStack {
@@ -52,6 +50,10 @@ struct ContentView: View {
             WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
                 .edgesIgnoringSafeArea(.all)
         }
+        #else
+        WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
+            .edgesIgnoringSafeArea(.all)
+        #endif
     }
 }
 
