@@ -34,10 +34,14 @@ struct WebView: NSViewRepresentable {
 #endif
 
 struct ContentView: View {
+    private var isPreview: Bool {
+        return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }
+    
     var body: some View {
         #if DEBUG
-        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-            // Placeholder content for preview
+        if isPreview {
+            // Placeholder only shown in Xcode preview
             VStack {
                 Text("Pure")
                     .font(.largeTitle)
@@ -46,11 +50,12 @@ struct ContentView: View {
                     .foregroundColor(.secondary)
             }
         } else {
-            // Real WebView for actual runtime
+            // Show actual WebView in simulator and on device
             WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
                 .edgesIgnoringSafeArea(.all)
         }
         #else
+        // Always show WebView in Release builds
         WebView(url: URL(string: "https://purity21-streak-tracker.lovable.app")!)
             .edgesIgnoringSafeArea(.all)
         #endif
