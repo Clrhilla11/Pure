@@ -34,31 +34,10 @@ struct WebView: NSViewRepresentable {
 #endif
 
 struct ContentView: View {
-    private var isPreview: Bool {
-        return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
-    }
-    
     var body: some View {
-        #if DEBUG
-        if isPreview {
-            // Placeholder only shown in Xcode preview
-            VStack {
-                Text("Pure")
-                    .font(.largeTitle)
-                    .padding()
-                Text("Web content will load on device")
-                    .foregroundColor(.secondary)
-            }
-        } else {
-            // Show actual WebView in simulator and on device
-            WebView(url: URL(string: "https://simple-skeletal-app-frame.lovable.app")!)
-                .edgesIgnoringSafeArea(.all)
-        }
-        #else
-        // Always show WebView in Release builds
+        // Always show the actual WebView in all modes
         WebView(url: URL(string: "https://simple-skeletal-app-frame.lovable.app")!)
             .edgesIgnoringSafeArea(.all)
-        #endif
     }
 }
 
